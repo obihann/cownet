@@ -7,7 +7,7 @@ from subprocess import call
 
 # The brains
 class Cownet:
-	def __init__(self, interface = "en1", delay = 5.0):
+	def __init__(self, interface, delay):
 		self.interface = interface
 		self.delay = delay
 
@@ -51,24 +51,24 @@ class Cownet:
 class Main:
 	# Setup some default varialbes
 	interface = "en1"
-	delay = 5.0
+	delay = 30.0
 
 	def __init__(self, argv):
 		# Check for command line arguments
 		try:
 			opts, args = getopt.getopt(argv,"hi:d:",["help", "interface=","delay="])
 		except getopt.GetoptError:
-			print 'test.py -i <interface> -d <delay>'
+			print 'cownet.py -i <interface> -d <delay>'
 			sys.exit(2)
 
 		for opt, arg in opts:
 			if opt == '-h':
-				print 'test.py -i <interface> -d <delay>'
+				print 'cownet.py -i <interface> -d <delay>'
 				sys.exit()
 			elif opt in ("-i", "--interface"):
 				self.interface = arg
-			elif opt in ("-p", "--delay"):
-				self.delay = arg
+			elif opt in ("-d", "--delay"):
+				self.delay = float(arg)
 
 		cowThread = threading.Thread(target = self.startThreads)
 		cowThread.daemon = True
