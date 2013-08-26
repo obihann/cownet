@@ -15,3 +15,23 @@ Cownet
                 ||     ||
 
 ```
+
+##Instructions
+> cownet.py
+
+By default this refreshes every 30 seconds while measuring data from the eth1 interface
+
+
+> cownet.py -d 5
+
+Specify a delay of your choice
+
+
+> cownet.py -i wlan0
+
+Specify a interface of your choice
+
+
+> cownet.py -h
+
+Get help
