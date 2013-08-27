@@ -38,6 +38,7 @@ class Cownet:
 
 	def cowSayWhat(self):
 		os.system('clear')
+		call(["figlet", "cownet"])
 		call(["cowsay", self.say])
 
 	# Turn raw numbers to user friendly strings
