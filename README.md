@@ -22,6 +22,32 @@ Cownet
 
 ```
 
+##Table of Contents
+* [Download](#download)
+* [Setup](#setup)
+* [Instructions](#instructions)
+* [License](#license)
+
+##Download
+Check out out latest [release](https://github.com/obihann/Cownet/releases/tag/v1.1-beta) 
+
+##Setup
+This is presently only a OSX tool built in Python. To render the output as seen above we use [figlet](http://www.figlet.org/) and [cowsay](http://en.wikipedia.org/wiki/Cowsay). 
+
+####Homebrew
+We recommend to install [homebrew](http://brew.sh/) to manage packages such as Python, figlet, and cowsay. To install please run the following command:
+```
+ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+```
+
+####figlet and cowsay
+Once homebrew is installed we can move on to the other tools. Please run the following commands:
+```
+brew install python
+brew install figlet
+brew install cowsay
+```
+
 ##Instructions
 > cownet.py
 
@@ -41,3 +67,8 @@ Specify a interface of your choice
 > cownet.py -h
 
 Get help
+
+##License
+This tool is protected by the [GNU General Public License v2](http://www.gnu.org/licenses/gpl-2.0.html).
+
+Copyright [Jeffrey Hann](http://jeffreyhann.ca/) 2013
