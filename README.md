@@ -28,9 +28,6 @@ Cownet
 * [Instructions](#instructions)
 * [License](#license)
 
-##Download
-Check out out latest [release](https://github.com/obihann/Cownet/releases/tag/v1.1-beta)
-
 ##Setup
 This is a Python tool that is presently only built for OSX. To render the output as seen above we use [figlet](http://www.figlet.org/) and [cowsay](http://en.wikipedia.org/wiki/Cowsay).
 
