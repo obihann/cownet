@@ -1,1 +1,0 @@
-/usr/local/Library/Formula/cownet.rb
