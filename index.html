@@ -32,7 +32,7 @@
 <a name="cownet" class="anchor" href="#cownet"><span class="octicon octicon-link"></span></a>Cownet</h1>
 
 <blockquote>
-<p>I wanted to view my up to date network usage in a easy to read and friendly way. So I built a tool that pulls the data in from <a href="http://linux.die.net/man/8/netstat">netstat</a>, and displays a cleaned up output in <a href="http://linux.die.net/man/1/cowsay">Cowsay</a>. </p>
+<p>I wanted to view my up to date network usage in a easy to read and friendly way. So I built a tool that pulls the data in from <a href="http://linux.die.net/man/8/netstat">netstat</a>, and displays a cleaned up output in <a href="http://linux.die.net/man/1/cowsay">Cowsay</a>.</p>
 </blockquote>
 
 <pre><code>
@@ -54,34 +54,73 @@
 </code></pre>
 
 <h2>
+<a name="table-of-contents" class="anchor" href="#table-of-contents"><span class="octicon octicon-link"></span></a>Table of Contents</h2>
+
+<ul>
+<li><a href="#download">Download</a></li>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#instructions">Instructions</a></li>
+<li><a href="#license">License</a></li>
+</ul><h2>
+<a name="setup" class="anchor" href="#setup"><span class="octicon octicon-link"></span></a>Setup</h2>
+
+<p>This is a Python tool that is presently only built for OSX. To render the output as seen above we use <a href="http://www.figlet.org/">figlet</a> and <a href="http://en.wikipedia.org/wiki/Cowsay">cowsay</a>.
+To get started you will need <a href="http://brew.sh/">homebrew</a> to manage packages such as Python, figlet, and cowsay. To install please run the following command:</p>
+
+<pre><code>ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+</code></pre>
+
+<p>Once homebrew is installed (or if you already have it) you can run the following command:</p>
+
+<pre><code>brew install cownet
+</code></pre>
+
+<h2>
 <a name="instructions" class="anchor" href="#instructions"><span class="octicon octicon-link"></span></a>Instructions</h2>
 
 <blockquote>
-<p>cownet.py</p>
+<p>cownet</p>
 </blockquote>
 
 <p>By default this refreshes every 30 seconds while measuring data from the eth1 interface</p>
 
 <blockquote>
-<p>cownet.py -d 5</p>
+<p>cownet -d 5</p>
 </blockquote>
 
 <p>Specify a delay of your choice</p>
 
 <blockquote>
-<p>cownet.py -i wlan0</p>
+<p>cownet -i wlan0</p>
 </blockquote>
 
 <p>Specify a interface of your choice</p>
 
 <blockquote>
-<p>cownet.py -h</p>
+<p>cownet -h</p>
 </blockquote>
 
 <p>Get help</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>This tool is protected by the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License v2</a>.</p>
+
+<p>Copyright <a href="http://jeffreyhann.ca/">Jeffrey Hann</a> 2013</p>
       </section>
     </div>
 
-    
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-44008116-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>
