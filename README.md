@@ -1,7 +1,7 @@
 Cownet
 ======
 
-> I wanted to view my up to date network usage in a easy to read and friendly way. So I built a tool that pulls the data in from [netstat](http://linux.die.net/man/8/netstat), and displays a cleaned up output in [Cowsay](http://linux.die.net/man/1/cowsay). 
+> I wanted to view my up to date network usage in a easy to read and friendly way. So I built a tool that pulls the data in from [netstat](http://linux.die.net/man/8/netstat), and displays a cleaned up output in [Cowsay](http://linux.die.net/man/1/cowsay).
 
 ```
 
@@ -29,10 +29,10 @@ Cownet
 * [License](#license)
 
 ##Download
-Check out out latest [release](https://github.com/obihann/Cownet/releases/tag/v1.1-beta) 
+Check out out latest [release](https://github.com/obihann/Cownet/releases/tag/v1.1-beta)
 
 ##Setup
-This is presently only a OSX tool built in Python. To render the output as seen above we use [figlet](http://www.figlet.org/) and [cowsay](http://en.wikipedia.org/wiki/Cowsay). 
+This is a Python tool that is presently only built for OSX. To render the output as seen above we use [figlet](http://www.figlet.org/) and [cowsay](http://en.wikipedia.org/wiki/Cowsay).
 
 ####Homebrew
 We recommend to install [homebrew](http://brew.sh/) to manage packages such as Python, figlet, and cowsay. To install please run the following command:
@@ -40,31 +40,28 @@ We recommend to install [homebrew](http://brew.sh/) to manage packages such as P
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 ```
 
-####figlet and cowsay
 Once homebrew is installed we can move on to the other tools. Please run the following commands:
 ```
-brew install python
-brew install figlet
-brew install cowsay
+brew install cownet
 ```
 
 ##Instructions
-> cownet.py
+> cownet
 
 By default this refreshes every 30 seconds while measuring data from the eth1 interface
 
 
-> cownet.py -d 5
+> cownet -d 5
 
 Specify a delay of your choice
 
 
-> cownet.py -i wlan0
+> cownet -i wlan0
 
 Specify a interface of your choice
 
 
-> cownet.py -h
+> cownet -h
 
 Get help
 
