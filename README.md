@@ -27,6 +27,11 @@ Cownet
 * [Instructions](#instructions)
 * [License](#license)
 
+##Download
+The latest stable release is [0.2.0 Beta](https://github.com/obihann/Cownet/archive/0.2.0-beta.tar.gz).
+
+SHA1: 16a7b8e563d086a1b5078ce15f7f8688e2a59572
+
 ##Setup
 This is a Python tool that is presently only built for OSX. To render the output as seen above we use [figlet](http://www.figlet.org/) and [cowsay](http://en.wikipedia.org/wiki/Cowsay).
 To get started you will need [homebrew](http://brew.sh/) to manage packages such as Python, figlet, and cowsay. To install please run the following command:
