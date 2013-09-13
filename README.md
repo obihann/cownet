@@ -23,6 +23,7 @@ Cownet
 ```
 
 ##Table of Contents
+* [Download](#download)
 * [Setup](#setup)
 * [Instructions](#instructions)
 * [License](#license)
