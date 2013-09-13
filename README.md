@@ -30,14 +30,12 @@ Cownet
 
 ##Setup
 This is a Python tool that is presently only built for OSX. To render the output as seen above we use [figlet](http://www.figlet.org/) and [cowsay](http://en.wikipedia.org/wiki/Cowsay).
-
-####Homebrew
-We recommend to install [homebrew](http://brew.sh/) to manage packages such as Python, figlet, and cowsay. To install please run the following command:
+To get started you will need [homebrew](http://brew.sh/) to manage packages such as Python, figlet, and cowsay. To install please run the following command:
 ```
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 ```
 
-Once homebrew is installed we can move on to the other tools. Please run the following commands:
+Once homebrew is installed (or if you already have it) you can run the following command:
 ```
 brew install cownet
 ```
