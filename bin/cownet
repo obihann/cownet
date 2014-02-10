@@ -2,6 +2,7 @@
 
 # Imports
 import os, re, threading, sys, getopt, time
+import fcntl, termios, struct
 from subprocess import check_output
 from subprocess import call
 
@@ -10,11 +11,18 @@ class Cownet:
 	def __init__(self, interface, delay):
 		self.interface = interface
 		self.delay = delay
+		self.width = self.terminal_size() - 8 
 
 		while(True):
 			self.loadNetData()
 			self.cowSayWhat()
 			time.sleep(self.delay)
+
+	def terminal_size(self):
+		h, w, hp, wp = struct.unpack('HHHH',
+			fcntl.ioctl(0, termios.TIOCGWINSZ,
+			struct.pack('HHHH', 0, 0, 0, 0)))
+		return w
 
 	def loadNetData(self):
 		# Get the response from netstat and break it up by row
@@ -34,12 +42,22 @@ class Cownet:
 				break
 
 		# Build string and pass to cowsay
-		self.say = "Received " + self.sizeof_fmt(self.inBytes) + "   /   Sent " + self.sizeof_fmt(self.outBytes)
+		self.say = "Received " + self.sizeof_fmt(self.inBytes) + " / Sent " + self.sizeof_fmt(self.outBytes)
+
+	def printCenter(self, txt):
+		print(str.center(txt, self.width))
 
 	def cowSayWhat(self):
 		os.system('clear')
-		call(["figlet", "cownet"])
-		call(["cowsay", self.say])
+		call(["figlet", "-w", str(self.width), "-c", "cownet"])
+		self.printCenter("____________________________________")
+		self.printCenter("< " + self.say + " >")
+		self.printCenter("------------------------------------")
+		self.printCenter("    \   ^__^        ")
+		self.printCenter("     \  (oo)\_______")
+		self.printCenter("            (__)\       )\/\\")
+		self.printCenter("                ||----w |")
+		self.printCenter("                ||     ||")
 
 	# Turn raw numbers to user friendly strings
 	def sizeof_fmt(self, num):
@@ -71,17 +89,10 @@ class Main:
 			elif opt in ("-d", "--delay"):
 				self.delay = float(arg)
 
-		cowThread = threading.Thread(target = self.startThreads)
-		cowThread.daemon = True
-		cowThread.start()
-
 		try:
-			time.sleep(1000)
+			self.net = Cownet(self.interface, self.delay)
 		except KeyboardInterrupt:
-			print '\nGoodbye!'
-
-	def startThreads(self):
-		Cownet(self.interface, self.delay)
+			sys.exit()
 
 if __name__ == "__main__":
 	main = Main(sys.argv[1:])
