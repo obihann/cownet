@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 # Imports
-import os, re, threading, sys, getopt, time
+import os, re, sys, getopt, time
 import fcntl, termios, struct
 from subprocess import check_output
 from subprocess import call
@@ -42,7 +42,10 @@ class Cownet:
 				break
 
 		# Build string and pass to cowsay
-		self.say = "Received " + self.sizeof_fmt(self.inBytes) + " / Sent " + self.sizeof_fmt(self.outBytes)
+		if hasattr(self, 'inBytes') and hasattr(self, 'outBytes'):
+			self.say = "Received " + self.sizeof_fmt(self.inBytes) + " / Sent " + self.sizeof_fmt(self.outBytes)
+		else:
+			self.say = "Were having trouble reading " + self.interface + ", are you sure thats the correct interface?"
 
 	def printCenter(self, txt):
 		print(str.center(txt, self.width))
