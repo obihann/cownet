@@ -1,9 +1,8 @@
-Cownet
-======
-
-> I wanted to view my up to date network usage in a easy to read and friendly way. So I built a tool that pulls the data in from [netstat](http://linux.die.net/man/8/netstat), and displays a cleaned up output in [Cowsay](http://linux.die.net/man/1/cowsay).
-
+#Cownet
+I wanted to view my up to date network usage in a easy to read and friendly way. So I built a tool that pulls the data in from [netstat](http://linux.die.net/man/8/netstat), and displays a cleaned up output in [Cowsay](http://linux.die.net/man/1/cowsay).
 ```
+
+$ cownet
 
                               _
   ___ _____      ___ __   ___| |_
@@ -46,26 +45,28 @@ $ brew install cownet
 ```
 
 ##Instructions
-To run the app:
-```
-$ cownet
-```
-
-By default we refresh the data every 30 seconds, to change this yourself:
-```
-$ cownet -d 5
-```
-
-By default we pull data from the en1 interface, you can change this though:
-```
-$ cownet -i wlan0
-```
-
-Get help:
 ```
 $ cownet -h
+
+usage: Cownet [-h] [-l] [-i INTERFACE] [-d DELAY] [-v]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -l, --light           The low calorie version
+  -i INTERFACE, --interface INTERFACE
+                        Change the network interface (defaults to en1)
+  -d DELAY, --delay DELAY
+                        Change the frequency we check your usage data
+                        (defaults to 30 seconds)
+  -v, --version         show program's version number and exit
 ```
 
+##Low Calorie Mode
+No cow, now fancy logo, just data.
+```
+$ cownet -l
+Received 2.4 GB / Sent 2.4 GB
+```
 
 ##License
 This tool is protected by the [GNU General Public License v2](http://www.gnu.org/licenses/gpl-2.0.html).
