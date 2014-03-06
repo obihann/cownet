@@ -1,41 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-
     <title>Cownet by obihann</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
   </head>
-
   <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/obihann/Cownet">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/obihann/Cownet/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/obihann/Cownet/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
-    <header>
-      <div class="container">
-        <h1>Cownet</h1>
-        <h2>Cow say&#39;s you download too much</h2>
+    <div class="wrapper">
 
-        <section id="downloads">
-          <a href="https://github.com/obihann/Cownet/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/obihann/Cownet/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/obihann/Cownet" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
+      <section>
+        <div id="title">
+          <h1>Cownet</h1>
+          <p>Cow say&#39;s you download too much</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/obihann">obihann</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
 
-    <div class="container">
-      <section id="main_content">
-        <h1>
-<a name="cownet" class="anchor" href="#cownet"><span class="octicon octicon-link"></span></a>Cownet</h1>
+        <p>I wanted to view my up to date network usage in a easy to read and friendly way. So I built a tool that pulls the data in from <a href="http://linux.die.net/man/8/netstat">netstat</a>, and displays a cleaned up output in <a href="http://linux.die.net/man/1/cowsay">Cowsay</a>.</p>
 
-<blockquote>
-<p>I wanted to view my up to date network usage in a easy to read and friendly way. So I built a tool that pulls the data in from <a href="http://linux.die.net/man/8/netstat">netstat</a>, and displays a cleaned up output in <a href="http://linux.die.net/man/1/cowsay">Cowsay</a>.</p>
-</blockquote>
+<h2>
+<a name="table-of-contents" class="anchor" href="#table-of-contents"><span class="octicon octicon-link"></span></a>Table of Contents</h2>
 
-<pre><code>
+<ul>
+<li><a href="#download">Download</a></li>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#license">License</a></li>
+</ul><h2>
+<a name="setup" class="anchor" href="#setup"><span class="octicon octicon-link"></span></a>Setup</h2>
+
+<p>This is a Python tool that is presently only built for OSX. To render the output as seen above we use <a href="http://www.figlet.org/">figlet</a> and <a href="http://en.wikipedia.org/wiki/Cowsay">cowsay</a>.
+To get started you will need <a href="http://brew.sh/">homebrew</a> to manage packages such as Python, figlet, and cowsay. To install please run the following command:</p>
+
+<pre><code>ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+</code></pre>
+
+<p>Once homebrew is installed (or if you already have it) you can run the following command:</p>
+
+<pre><code>$ brew install cownet
+</code></pre>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<pre><code>$ cownet
                               _
   ___ _____      ___ __   ___| |_
  / __/ _ \ \ /\ / / '_ \ / _ \ __|
@@ -53,61 +83,30 @@
 
 </code></pre>
 
-<h2>
-<a name="table-of-contents" class="anchor" href="#table-of-contents"><span class="octicon octicon-link"></span></a>Table of Contents</h2>
+<h3>
+<a name="low-calorie-light-mode" class="anchor" href="#low-calorie-light-mode"><span class="octicon octicon-link"></span></a>Low calorie "light" mode</h3>
 
-<ul>
-<li><a href="#download">Download</a></li>
-<li><a href="#setup">Setup</a></li>
-<li><a href="#instructions">Instructions</a></li>
-<li><a href="#license">License</a></li>
-</ul><h2>
-<a name="download" class="anchor" href="#download"><span class="octicon octicon-link"></span></a>Download</h2>
-
-<p>The latest stable release is <a href="https://github.com/obihann/Cownet/archive/0.2.0-beta.tar.gz">0.2.0 Beta</a>.</p>
-
-<p>SHA1: 16a7b8e563d086a1b5078ce15f7f8688e2a59572</p>
-
-<h2>
-<a name="setup" class="anchor" href="#setup"><span class="octicon octicon-link"></span></a>Setup</h2>
-
-<p>This is a Python tool that is presently only built for OSX. To render the output as seen above we use <a href="http://www.figlet.org/">figlet</a> and <a href="http://en.wikipedia.org/wiki/Cowsay">cowsay</a>.
-To get started you will need <a href="http://brew.sh/">homebrew</a> to manage packages such as Python, figlet, and cowsay. To install please run the following command:</p>
-
-<pre><code>ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+<pre><code>$ cownet -l
+Received 2.4 GB / Sent 2.4 GB
 </code></pre>
 
-<p>Once homebrew is installed (or if you already have it) you can run the following command:</p>
+<h3>
+<a name="help" class="anchor" href="#help"><span class="octicon octicon-link"></span></a>Help</h3>
 
-<pre><code>brew install cownet
+<pre><code>$ cownet -h
+
+usage: Cownet [-h] [-l] [-i INTERFACE] [-d DELAY] [-v]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -l, --light           The low calorie version
+  -i INTERFACE, --interface INTERFACE
+                        Change the network interface (defaults to en1)
+  -d DELAY, --delay DELAY
+                        Change the frequency we check your usage data
+                        (defaults to 30 seconds)
+  -v, --version         show program's version number and exit
 </code></pre>
-
-<h2>
-<a name="instructions" class="anchor" href="#instructions"><span class="octicon octicon-link"></span></a>Instructions</h2>
-
-<blockquote>
-<p>cownet</p>
-</blockquote>
-
-<p>By default this refreshes every 30 seconds while measuring data from the eth1 interface</p>
-
-<blockquote>
-<p>cownet -d 5</p>
-</blockquote>
-
-<p>Specify a delay of your choice</p>
-
-<blockquote>
-<p>cownet -i wlan0</p>
-</blockquote>
-
-<p>Specify a interface of your choice</p>
-
-<blockquote>
-<p>cownet -h</p>
-</blockquote>
-
-<p>Get help</p>
 
 <h2>
 <a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
@@ -116,8 +115,9 @@ To get started you will need <a href="http://brew.sh/">homebrew</a> to manage pa
 
 <p>Copyright <a href="http://jeffreyhann.ca/">Jeffrey Hann</a> 2013</p>
       </section>
-    </div>
 
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
