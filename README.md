@@ -8,7 +8,7 @@ I wanted to view my up to date network usage in a easy to read and friendly way.
 * [License](#license)
 
 ##Download
-The latest stable release is [0.3.0 Beta](https://github.com/obihann/Cownet/archive/0.2.0-beta.tar.gz).
+The latest stable release is [0.3.0 Beta](https://github.com/obihann/Cownet/archive/0.3.0-beta.tar.gz).
 
 ##Setup
 This is a Python tool that is presently only built for OSX. To render the output as seen above we use [figlet](http://www.figlet.org/) and [cowsay](http://en.wikipedia.org/wiki/Cowsay).
