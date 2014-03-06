@@ -1,16 +1,18 @@
 #!/usr/bin/python
 
 # Imports
-import os, re, sys, getopt, time
+import os, re, sys, argparse, time
 import fcntl, termios, struct
 from subprocess import check_output
 from subprocess import call
 
 # The brains
 class Cownet:
-	def __init__(self, interface, delay):
+	light = False
+	def __init__(self, interface, delay, light):
 		self.interface = interface
 		self.delay = delay
+		self.light = light
 		self.width = self.terminal_size() - 8 
 
 		while(True):
@@ -51,16 +53,20 @@ class Cownet:
 		print(str.center(txt, self.width))
 
 	def cowSayWhat(self):
-		os.system('clear')
-		call(["figlet", "-w", str(self.width), "-c", "cownet"])
-		self.printCenter("____________________________________")
-		self.printCenter("< " + self.say + " >")
-		self.printCenter("------------------------------------")
-		self.printCenter("    \   ^__^        ")
-		self.printCenter("     \  (oo)\_______")
-		self.printCenter("            (__)\       )\/\\")
-		self.printCenter("                ||----w |")
-		self.printCenter("                ||     ||")
+
+		if self.light == False:
+			os.system('clear')
+			call(["figlet", "-w", str(self.width), "-c", "cownet"])
+			self.printCenter("____________________________________")
+			self.printCenter("< " + self.say + " >")
+			self.printCenter("------------------------------------")
+			self.printCenter("    \   ^__^        ")
+			self.printCenter("     \  (oo)\_______")
+			self.printCenter("            (__)\       )\/\\")
+			self.printCenter("                ||----w |")
+			self.printCenter("                ||     ||")
+		else:
+			print(self.say)
 
 	# Turn raw numbers to user friendly strings
 	def sizeof_fmt(self, num):
@@ -74,26 +80,33 @@ class Main:
 	# Setup some default varialbes
 	interface = "en1"
 	delay = 30.0
+	version = "0.3.0"
+	light = False
 
 	def __init__(self, argv):
-		# Check for command line arguments
-		try:
-			opts, args = getopt.getopt(argv,"hi:d:",["help", "interface=","delay="])
-		except getopt.GetoptError:
-			print 'cownet.py -i <interface> -d <delay>'
-			sys.exit(2)
+		parser = argparse.ArgumentParser(prog='Cownet')
+		parser.add_argument("-l", "--light", help="The low calorie version", action='store_true')
+		parser.add_argument("-i", "--interface", type=str, help="Change the network interface (defaults to en1)")
+		parser.add_argument("-d", "--delay", type=float, help="Change the frequency we check your usage data (defaults to 30 seconds)")
+		parser.add_argument("-v", '--version', action='version', version='%(prog)s 0.3.0')
 
-		for opt, arg in opts:
-			if opt == '-h':
-				print 'cownet.py -i <interface> -d <delay>'
-				sys.exit()
-			elif opt in ("-i", "--interface"):
-				self.interface = arg
-			elif opt in ("-d", "--delay"):
-				self.delay = float(arg)
+		args = parser.parse_args()
+		if args.delay:
+			self.delay = float(args.delay)
+		if args.interface:
+			self.interface = args.interface
+		if args.light:
+			self.light = True
+
+		if self.light == False:
+			print 'Cownet' + self.version
+			print 'https://github.com/obihann/cownet/'
+			print 'This tool is protected by the GNU General Public License v2.'
+			print 'Copyright Jeffrey Hann 2013'
+			print '------------------------------------------------------------'
 
 		try:
-			self.net = Cownet(self.interface, self.delay)
+			self.net = Cownet(self.interface, self.delay, self.light)
 		except KeyboardInterrupt:
 			sys.exit()
 
