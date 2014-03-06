@@ -42,28 +42,30 @@ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 
 Once homebrew is installed (or if you already have it) you can run the following command:
 ```
-brew install cownet
+$ brew install cownet
 ```
 
 ##Instructions
-> cownet
+To run the app:
+```
+$ cownet
+```
 
-By default this refreshes every 30 seconds while measuring data from the eth1 interface
+By default we refresh the data every 30 seconds, to change this yourself:
+```
+$ cownet -d 5
+```
 
+By default we pull data from the en1 interface, you can change this though:
+```
+$ cownet -i wlan0
+```
 
-> cownet -d 5
+Get help:
+```
+$ cownet -h
+```
 
-Specify a delay of your choice
-
-
-> cownet -i wlan0
-
-Specify a interface of your choice
-
-
-> cownet -h
-
-Get help
 
 ##License
 This tool is protected by the [GNU General Public License v2](http://www.gnu.org/licenses/gpl-2.0.html).
